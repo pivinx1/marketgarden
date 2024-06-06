@@ -1,5 +1,5 @@
 global loader                   ; the entry symbol for ELF
-external sum_of_three           ; sumofthree is definitely somewhere else, but idk where
+extern sum_of_three           ; sumofthree is definitely somewhere else, but idk where
 
 MAGIC_NUMBER equ 0x1BADB002     ; define the magic number constant
 FLAGS        equ 0x0            ; multiboot flags
