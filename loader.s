@@ -18,7 +18,8 @@ kernel_stack:
   resb KERNEL_STACK_SIZE        ; make a 4 kB large stack
 
 loader:                         ; the loader label (defined as entry point in linker script)
-    mov eax, 0xDEADBEEF         ; place the number 0x in the register eax
+    mov eax, 0xDEADBEEF         ; place the number 0xDEADBEEF in the register eax (not gonna be doing anything with it, just let it be there)
+                                ; it will be overwritten by C anyways
     mov esp, kernel_stack, KERNEL_STACK_SIZE ; ask the CPU to put the stack pointer in the start of the stack
     
     
