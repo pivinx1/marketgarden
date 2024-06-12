@@ -1,5 +1,5 @@
 global loader                   ; the entry symbol for ELF
-extern sum_of_three           ; sumofthree is definitely somewhere else, but idk where
+extern kmain           		; main is definitely somewhere else, but idk where
 
 MAGIC_NUMBER equ 0x1BADB002     ; define the magic number constant
 FLAGS        equ 0x0            ; multiboot flags
@@ -23,10 +23,7 @@ loader:                         ; the loader label (defined as entry point in li
                                 ; it will be overwritten by C anyways
     mov esp, kernel_stack + KERNEL_STACK_SIZE ; ask the CPU to put the stack pointer in the start of the stack
 
-    push dword 5
-    push dword 7
-    push dword 1
-    call sum_of_three               ; call the function with given arguments, result should end up in eax
+    call kmain               ; call the function with given arguments, result should end up in eax
     
     
 .loop:
