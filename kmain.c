@@ -1,7 +1,9 @@
 /* haha imagine having libraries, can't be me */
 #include "fb.h"
+#include "io.h"
 
 void kmain()
 {
-	fb_write_cell(0, 'A', 2, 8);
+	clear_screen();
+	print("consume the cum chalice");
 }
