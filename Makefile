@@ -1,4 +1,4 @@
-OBJECTS = loader.o kmain.o fb.o io.o
+OBJECTS = loader.o kmain.o fb.o io.o serial.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
              -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
@@ -27,7 +27,7 @@ os.iso: kernel.elf
 		iso
 
 run: os.iso
-	qemu-system-i386 -cdrom  os.iso
+	qemu-system-i386 -cdrom os.iso -serial file:log.txt
 
 %.o: %.c
 	$(CC) $(CFLAGS)  $< -o $@

@@ -64,8 +64,11 @@ void clear_screen()
 
 void print(char* buf)
 {
-	int len = sizeof(buf);
-	for(int i = 0; i < len; i++)
+	int n = 0;
+	while(buf[n] != 0)
+		n++;
+	int size = n + 1;
+	for (int i = 0; i < size; i++)
 	{
 		fb_write_cell(mem_pos, buf[i], FB_FOREGROUND, FB_BACKGROUND);
 		mem_pos += 2;
