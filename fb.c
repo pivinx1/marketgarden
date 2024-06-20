@@ -19,6 +19,7 @@
 #define FB_LOW_BYTE_COMMAND  15
 
 char *fb = (char *) 0xB8000;
+unsigned short mem_pos = 0;
 
 /*
  *
@@ -63,11 +64,10 @@ void clear_screen()
 
 void print(char* buf)
 {
-	unsigned int len = sizeof(buf);
-	unsigned short pos = 0;
-	for(unsigned int i = 0; i < len; i++)
+	int len = sizeof(buf);
+	for(int i = 0; i < len; i++)
 	{
-		fb_write_cell(pos, buf[i], FB_FOREGROUND, FB_BACKGROUND);
-		pos += 2;
+		fb_write_cell(mem_pos, buf[i], FB_FOREGROUND, FB_BACKGROUND);
+		mem_pos += 2;
 	}
 }

@@ -5,5 +5,5 @@
 void kmain()
 {
 	clear_screen();
-	print("consume the cum chalice");
+	print("testtest");
 }
