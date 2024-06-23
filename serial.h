@@ -9,6 +9,12 @@ void configure_buffers(unsigned short com);
 
 void configure_modem(unsigned short com);
 
+int is_transmit_fifo_empty(unsigned short com);
+
 void initialize_serial(unsigned short com);
+
+void write_serial(unsigned short com, char a);
+
+void write_crlf_serial(unsigned short com);
 
 #endif

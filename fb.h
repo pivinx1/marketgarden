@@ -7,6 +7,8 @@ void fb_move_cursor(unsigned short pos);
 
 void clear_screen();
 
+void fb_crlf();
+
 void print(char* buf);
 
 #endif 

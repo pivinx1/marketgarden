@@ -62,6 +62,11 @@ void clear_screen()
 		fb_write_cell(i, ' ', 0, 0);
 }
 
+void fb_crlf()
+{
+	fb_write_cell(mem_pos, 0xD, 0, 0);
+}
+
 void print(char* buf)
 {
 	int n = 0;
@@ -70,7 +75,15 @@ void print(char* buf)
 	int size = n + 1;
 	for (int i = 0; i < size; i++)
 	{
-		fb_write_cell(mem_pos, buf[i], FB_FOREGROUND, FB_BACKGROUND);
+		switch (buf[i])
+		{
+			case '\n':
+				fb_crlf();
+				break;
+			default:
+				fb_write_cell(mem_pos, buf[i], FB_FOREGROUND, FB_BACKGROUND);
+				break;
+		}
 		mem_pos += 2;
 	}
 }

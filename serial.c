@@ -3,6 +3,9 @@
 
 #define SERIAL_COM1_BASE	0x3F8
 
+#define CR			0xD
+#define LF			0xA
+
 #define SERIAL_DATA_PORT(base)			(base)
 #define SERIAL_FIFO_COMMAND_PORT(base)		(base + 2)
 #define SERIAL_LINE_COMMAND_PORT(base)		(base + 3)
@@ -45,8 +48,21 @@ void initialize_serial(unsigned short com)
 	configure_modem(com);
 }
 
-void is_transmit_fifo_empty(unsigned short com)
+int is_transmit_fifo_empty(unsigned short com)
 {
 	/* 0x20 is 0010 0000 */
-	return (inb(SERIAL_LINE_STATUS_PORT(com)) & 0x20
+	return inb(SERIAL_LINE_STATUS_PORT(com)) & 0x20;
+}
+
+void write_crlf_serial(unsigned short com)
+{
+	write_serial(com, CR);
+	write_serial(com, LF);
+}
+
+void write_serial(unsigned short com, char a)
+{
+	while(is_transmit_fifo_empty(com) == 0);
+
+	outb(com, a);		
 }
