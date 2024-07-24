@@ -11,11 +11,7 @@ void kmain()
 	clear_screen();
 	print("MarketGardenOS 0.0.1 powered by DuctTape Kernel");
 	print("Initializing...");
-	write_serial(COM1, 'P');
-	write_serial(COM1, 'i');
-	write_crlf_serial(COM1);
-	write_serial(COM1, 's');
-	write_serial(COM1, 's');
-	print("\nDone!\n");
-	print("Halting...");
+	print("Debug output active on COM1, 9600-8-N-1");
+	print_serial("[INFO] Serial log active\n");
+	print_serial("[INFO] kmain execution complete\n");
 }
