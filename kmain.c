@@ -9,9 +9,9 @@ void kmain()
 {
 	initialize_serial(COM1);
 	clear_screen();
-	print("MarketGardenOS 0.0.1 powered by DuctTape Kernel");
-	print("Initializing...");
-	print("Debug output active on COM1, 9600-8-N-1");
-	print_serial("[INFO] Serial log active\n");
-	print_serial("[INFO] kmain execution complete\n");
+	print("MarketGardenOS 0.0.1 powered by DuctTape Kernel\n");
+	print("Initializing...\n");
+	print("Debug output active on COM1, 9600-8-N-1\n");
+	print_serial("[INFO] Serial log active\n", COM1);
+	print_serial("[INFO] kmain execution complete\n", COM1);
 }

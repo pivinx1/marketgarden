@@ -72,14 +72,14 @@ void print_serial(char* buf, unsigned short com)
 	int n = 0;
 	while(buf[n] != 0)
 		n++;
-	int size = n + 1;
+	int size = n;
 	for (int i = 0; i < size; i++)
 		switch(buf[i])
 		{
 			case '\n':
 				write_crlf_serial(com);
 				break;
-			case default:
+			default:
 				write_serial(com, buf[i]);
 				break;
 		}
