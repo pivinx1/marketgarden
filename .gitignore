@@ -51,4 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Other output stuff
 *.iso
+log.txt
+*.swp
