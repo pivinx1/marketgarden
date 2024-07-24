@@ -28,7 +28,7 @@ loader:                         ; the loader label (defined as entry point in li
                                 ; it will be overwritten by C anyways
     mov esp, kernel_stack + KERNEL_STACK_SIZE ; ask the CPU to put the stack pointer in the start of the stack
 
-    call kmain               ; call the function with given arguments, result should end up in eax
+    call kmain               
     
     
 .loop:
