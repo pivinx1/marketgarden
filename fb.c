@@ -72,7 +72,7 @@ void print(char* buf)
 	int n = 0;
 	while(buf[n] != 0)
 		n++;
-	int size = n + 1;
+	int size = n;
 	for (int i = 0; i < size; i++)
 	{
 		switch (buf[i])
