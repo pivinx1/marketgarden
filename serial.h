@@ -17,6 +17,6 @@ void write_serial(unsigned short com, char a);
 
 void write_crlf_serial(unsigned short com);
 
-void print_serial(char* buf, unsigned short com);
+void kprint_serial(char* buf, unsigned short com);
 
 #endif

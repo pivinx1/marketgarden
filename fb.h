@@ -1,15 +1,40 @@
 #ifndef _FB_H
 #define _FB_H
 
-void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg);
+enum vga_color {
+	VGA_COLOR_BLACK = 0,
+	VGA_COLOR_BLUE = 1,
+	VGA_COLOR_GREEN = 2,
+	VGA_COLOR_CYAN = 3,
+	VGA_COLOR_RED = 4,
+	VGA_COLOR_MAGENTA = 5,
+	VGA_COLOR_BROWN = 6,
+	VGA_COLOR_LIGHT_GREY = 7,
+	VGA_COLOR_DARK_GREY = 8,
+	VGA_COLOR_LIGHT_BLUE = 9,
+	VGA_COLOR_LIGHT_GREEN = 10,
+	VGA_COLOR_LIGHT_CYAN = 11,
+	VGA_COLOR_LIGHT_RED = 12,
+	VGA_COLOR_LIGHT_MAGENTA = 13,
+	VGA_COLOR_LIGHT_BROWN = 14,
+	VGA_COLOR_WHITE = 15,
+};
 
-void fb_move_cursor(unsigned short pos);
+void terminal_initialize(void);
 
-void clear_screen();
+void terminal_setcolor(unsigned char color);
 
-void fb_crlf();
+void terminal_putentryat(char c, unsigned char color, unsigned int x, unsigned int y);
 
-void print(char* buf);
+void terminal_scroll(void);
+
+void terminal_putchar(char c);
+
+void terminal_write(const char* data, unsigned int size);
+
+void terminal_writestring(const char* data);
+
+void kprint(const char* data);
 
 #endif 
 

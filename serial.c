@@ -67,7 +67,7 @@ void write_serial(unsigned short com, char a)
 	outb(com, a);		
 }
 
-void print_serial(char* buf, unsigned short com)
+void kprint_serial(char* buf, unsigned short com)
 {
 	int n = 0;
 	while(buf[n] != 0)
